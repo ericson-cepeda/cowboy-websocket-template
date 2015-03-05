@@ -9,15 +9,19 @@ start() ->
     ok = application:start(crypto),
     ok = application:start(ranch),
     ok = application:start(cowlib),
+    ok = application:start(xmerl),
+    ok = application:start(sockjs),
     ok = application:start(cowboy),
     ok = application:start(template),
-    io:format("Point your browser at http://localhost:8080/ to use Devo.\n").
+    io:format("Point your browser at http://localhost:6667/ to use Devo.\n").
 
 
 stop() ->
     error_logger:tty(false),
     ok = application:stop(crypto),
     ok = application:stop(ranch),
+    ok = application:stop(xmerl),
+    ok = application:stop(sockjs),
     ok = application:stop(cowboy),
     ok = application:stop(cowlib),
     ok = application:stop(template),

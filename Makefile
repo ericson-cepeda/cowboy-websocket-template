@@ -1,5 +1,5 @@
 DIALYZER = dialyzer
-REBAR = rebar
+REBAR = ./rebar
 
 all: app
 

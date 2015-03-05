@@ -21,10 +21,10 @@ init({tcp, http}, _Req, _Opts) ->
 
 %%%% Might want to change the atom to current app name
 websocket_init(_TransportName, Req, _Opts) ->
-    case whereis(ws_handler) of 
+    case whereis(ws_handler) of
         undefined ->
             register(ws_handler, self());
-        _ -> 
+        _ ->
             unregister(ws_handler),
             register(ws_handler, self())
     end,
@@ -44,11 +44,11 @@ websocket_handle(Data, Req, State) ->
 
 %%Called when this process recieves an erlang message.
 %%Currently this just sends those along to the client
-websocket_info(Info,Req,State) -> 
+websocket_info(Info,Req,State) ->
     io:format("Got erlang message"),
     MsgStr = lists:concat(["Erlang message: ", io_lib:format("~p",[Info])]),
     {reply, {text, list_to_binary(MsgStr)}, Req, State}.
-    
+
 
 websocket_terminate(_Reason, _Req, _State) ->
 	ok.

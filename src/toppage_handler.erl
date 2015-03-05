@@ -21,7 +21,7 @@ terminate(_Reason, _Req, _State) ->
 
 get_html() ->
     {ok, Cwd} = file:get_cwd(),
-    Filename =filename:join([Cwd, "priv", "html_ws_client.html"]),
+    Filename =filename:join([Cwd, "priv", "html_sockjs_client.html"]),
     case filelib:is_file(Filename) of 
         true ->
             {ok, Binary} = file:read_file(Filename),
@@ -31,7 +31,7 @@ get_html() ->
                 {error, _Reason} ->
                     throw({error, "I could not find where Devo is installed."});
                 LibDir ->
-                    Filename1 =filename:join([LibDir, "priv", "html_ws_client.html"]),
+                    Filename1 =filename:join([LibDir, "priv", "html_sockjs_client.html"]),
                     {ok, Binary} = file:read_file(Filename1),
                     Binary
             end
