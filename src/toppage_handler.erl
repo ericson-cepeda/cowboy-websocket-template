@@ -21,7 +21,7 @@ terminate(_Reason, _Req, _State) ->
 
 get_html() ->
     {ok, Cwd} = file:get_cwd(),
-    Filename =filename:join([Cwd, "priv", "html_sockjs_client.html"]),
+    Filename =filename:join([Cwd, "priv", "html_sockjs_client.html"]), % Using SockJS HTML
     case filelib:is_file(Filename) of 
         true ->
             {ok, Binary} = file:read_file(Filename),

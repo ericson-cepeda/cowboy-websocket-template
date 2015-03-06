@@ -33,7 +33,7 @@ start(_Type, _Args) ->
       {<<"/close/[...]">>, sockjs_cowboy_handler, StateClose},
       {<<"/amplify/[...]">>, sockjs_cowboy_handler, StateAmplify},
       {<<"/broadcast/[...]">>, sockjs_cowboy_handler, StateBroadcast},
-      {<<"/filter/[...]">>, sockjs_cowboy_handler, StateFilter},
+      {<<"/filter/[...]">>, sockjs_cowboy_handler, StateFilter}, %  REGEX filter route
       {<<"/disabled_websocket_echo/[...]">>, sockjs_cowboy_handler,
         StateDWSEcho},
       {<<"/cookie_needed_echo/[...]">>, sockjs_cowboy_handler,
